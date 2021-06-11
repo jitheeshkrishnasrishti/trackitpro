@@ -1,0 +1,151 @@
+<!--
+
+=========================================================
+* Now UI Dashboard Angular - v1.3.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/now-ui-dashboard-angular
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/now-ui-dashboard-angular/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!doctype html>
+<html>
+<head>
+    <base href='/'>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="./assets/img/final.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Company Trackit Pro</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+   <!-- CSS for Demo Purpose, don't include it in your project     -->
+   <link href="./assets/demo/demo.css" rel="stylesheet" />
+   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/zebra_datepicker.css">  
+  <link rel="stylesheet" href="/assets/css/zebra_datepicker.min.css">  
+  <link rel="stylesheet" href="/assets/css/my-dashstyle.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="/assets/js/jquery.min.js"></script> 
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <script src="/assets/js/zebra_datepicker.min.js"></script>  
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-KEY-HERE"></script> -->
+    <script>
+
+    
+      $('#datepicker').Zebra_DatePicker();
+      $('#datepicker-2').Zebra_DatePicker();
+      $('#datepicker-3').Zebra_DatePicker();
+      $('#datepicker-4').Zebra_DatePicker();
+  
+      $('#datepicker-future-tomorrow').Zebra_DatePicker({
+          direction: 1
+      });
+  
+      $('#datepicker-dynamic-interval').Zebra_DatePicker({
+          direction: [1, 10]
+      });
+  
+      $('#datepicker-dates-interval').Zebra_DatePicker({
+          direction: ['2012-08-01', '2012-08-12']
+      });
+  
+      $('#datepicker-after-date').Zebra_DatePicker({
+          direction: ['2012-08-01', false]
+      });
+  
+      $('#datepicker-disabled-dates').Zebra_DatePicker({
+          direction: true,
+          disabled_dates: ['* * * 0,6']
+      });
+  
+      $('#datepicker-range-start').Zebra_DatePicker({
+          direction: true,
+          pair: $('#datepicker-range-end')
+      });
+  
+      $('#datepicker-range-end').Zebra_DatePicker({
+          direction: 1
+      });
+  
+      $('#datepicker-formats').Zebra_DatePicker({
+          format: 'M d, Y'
+      });
+  
+      $('#datepicker-time').Zebra_DatePicker({
+          format: 'Y-m-d H:i'
+      });
+  
+      $('#datepicker-week-number').Zebra_DatePicker({
+          show_week_number: 'Wk'
+      });
+  
+      $('#datepicker-starting-view').Zebra_DatePicker({
+          view: 'years'
+      });
+  
+      $('#datepicker-partial-date-formats').Zebra_DatePicker({
+          format: 'm Y'
+      });
+  
+      $('#datepicker-custom-classes').Zebra_DatePicker({
+          disabled_dates: ['* * * 0,6'],
+          custom_classes: {
+              'myclass':  ['* * * 0,6']
+          }
+      });
+  
+      $('#datepicker-on-change').Zebra_DatePicker({
+          onChange: function(view, elements) {
+              if (view === 'days') {
+                  elements.each(function() {
+                      if ($(this).data('date').match(/\-24$/))
+                          $(this).css({
+                              background: '#C40000',
+                              color:      '#FFF'
+                          });
+                  });
+              }
+          }
+      });
+  
+      $('#datepicker-always-visible').Zebra_DatePicker({
+          always_visible: $('#container')
+      });
+  
+      $('#datepicker-rtl-support').Zebra_DatePicker({
+          rtl: true
+      });
+  
+      $('#datepicker-data-attributes').Zebra_DatePicker();
+  
+      setTimeout(function() {
+          // $.Zebra_Pin($('blockquote.bg-warning'));
+      }, 500);
+  
+  
+  
+  </script>
+</head>
+<body>
+  <app-root>
+  </app-root>
+</body>
+
+
+</html>

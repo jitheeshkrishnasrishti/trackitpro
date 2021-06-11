@@ -1,0 +1,114 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                  <img *ngIf="!data.Equip_Photo" src="/assets/img/equip.png" class="imge" alt=""/>
+  
+                    <img *ngIf="data.Equip_Photo" src="{{imgUrl+data.Equip_Photo}}" class="imge" alt=""/>
+  
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="profile-head pt-4">
+                            <h5>
+                               {{data.Equip_Name}}
+                            </h5>
+                          
+       
+                </div>
+            </div>
+  
+            <div class="col-md-2">
+                <div class="profile-head pt-4">
+                            <h5>
+                                QR Code
+                            </h5>
+                            <ngx-qrcode  id="qrcode"
+                            [elementType]="elementType" 
+                            [value] = "value"
+                            cssClass = "aclass"
+                            errorCorrectionLevel = "L">
+                      </ngx-qrcode>
+                      <button (click)="download()" class="btn btn-primary">Download PDF</button>
+
+                </div>
+            </div>
+         
+        </div>
+        <div class="row details_emp-tra">
+           
+            <div class="col-md-10 second_col">
+                <h3 class="pb-3">Equipment Details</h3>
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                           
+                            <div class="col-md-6">
+                                <label>Equipment Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p> {{data.Equip_Name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Make</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p> {{data.Equip_Make}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Model</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.Equip_Model}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Serial</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.Equip_Serial}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Project Site Name </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.Project_Site_Name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Status</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.Equip_Status}}</p>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Tag Info</label><br/>
+                        <p>{{data.Equip_Tag_info}}</p>
+                    </div>
+                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                               
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+  </div>
+  </div>

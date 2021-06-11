@@ -1,0 +1,225 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Manage Equipment Items</h4>
+          
+          <form class="inpur-search"> 
+            <div class="dropdown">
+              <button class="dropbtn">Filter</button>
+              <div class="dropdown-content">
+              <a >Active</a>
+              <a >InActive</a>
+              </div>
+            </div>
+            <div class="employee-btn">
+
+              <button type="button" class="btn btn-info btn-lg" style="width: 100%;margin-top: 20px;" data-toggle="modal" data-target="#addNewEquipModal">Add New Equipment Item</button>
+              </div> 
+            <div class="dropdown">
+              <button class="dropbtn">Equipment Category </button>
+              <div class="dropdown-content">
+              <a >Category 1</a>
+              <a >Category 2</a>
+              <a >Category 3</a>
+              </div>
+            </div>
+            <div class="search">
+              <input id="myInput" type="text" [(ngModel)]="searchText"  name="myCountry" placeholder="Search here" class="form-control search-bar" >
+              <div class="input-group-append">
+                
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  S.No
+                </th>
+                <th>
+                  Equipment Item Name
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Date Added
+                </th>
+                <th class="text-center">
+                  Action
+                </th>
+              </thead>
+              <tbody>
+                <tr  >
+                  <td>
+                    1
+                   </td>
+                  <td>
+                    Annual Crane Inspections
+                  </td>
+                  <td>
+                    Active
+                   </td>
+                  <td>
+                    12th Jan, 2021
+                   </td>          
+                  <td class="text-right">
+                    <div class="manage-buttons">
+                    <button class="hidden-btn" (click)= viewEquipment() ><i class="now-ui-icons users_single-02" ></i></button>
+                    <button class="hidden-btn" (click)= editEquipment()><i class="now-ui-icons design_scissors" ></i></button>
+                    <button class="hidden-btn" (click)= deletePopUp()><i class="fas fa-trash-alt" ></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr  >
+                    <td>
+                      2
+                     </td>
+                    <td>
+                      Liability Inspection
+                    </td>
+                    <td>
+                      Active
+                     </td>
+                    <td>
+                      12th Jan, 2021
+                    </td>          
+                    <td class="text-right">
+                      <div class="manage-buttons">
+                      <button class="hidden-btn" (click)= viewEquipment() ><i class="now-ui-icons users_single-02" ></i></button>
+                      <button class="hidden-btn" (click)= editEquipment()><i class="now-ui-icons design_scissors" ></i></button>
+                      <button class="hidden-btn" (click)= deletePopUp()><i class="fas fa-trash-alt" ></i></button>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      3
+                     </td>
+                    <td>
+                      DOT inspection
+                    </td>
+                    <td>
+                      InActive
+                     </td>
+                    <td>
+                      12th Jan, 2021
+                    </td>          
+                    <td class="text-right">
+                      <div class="manage-buttons">
+                      <button class="hidden-btn" (click)= viewEquipment() ><i class="now-ui-icons users_single-02" ></i></button>
+                      <button class="hidden-btn" (click)= editEquipment()><i class="now-ui-icons design_scissors" ></i></button>
+                      <button class="hidden-btn" (click)= deletePopUp()><i class="fas fa-trash-alt" ></i></button>
+                      </div>
+                    </td>
+                  </tr>
+            </table>
+            <div class="pagination">
+              <a href="#">Previous</a>
+              <a href="#">1</a>
+              <a class="active" href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <a href="#">6</a>
+              <a href="#">Next</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  </div>
+  <button style="display:none" type="button" id="removeEmp" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <button style="display:none" type="button" id="messagePopUp" class="btn btn-info btn-lg" data-toggle="modal" data-target="#messageModal">Open Modal</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Equipments</h4>
+
+        <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="Cancel btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="Confirm btn btn-default" (click)=deleteEquipments() >Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Modal -->
+<div class="modal fade" id="addNewEquipModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add New Equipment Item </h4>
+
+        <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+      </div>
+      <div class="modal-body">
+        <form   novalidate>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Name" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group label-floating is-empty">
+                <label>Category</label>
+        
+                <select class="form-control"  value="Category1" >
+                  <option value="Category1">Category1</option>
+                  <option value="Category2">Category2</option>
+                  <option value="Category3">Category3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group label-floating is-empty">
+                <label>Status</label>
+        
+                <select class="form-control"  value="Active" >
+                  <option value="Active">Active</option>
+                  <option value="InActive">InActive</option>
+                  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row modal-footer">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round" >Save</button>
+              
+              <button type="submit" class="btn btn-primary btn-round" >Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+  </ngx-spinner> 

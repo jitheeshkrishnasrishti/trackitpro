@@ -1,0 +1,336 @@
+body {
+	background:#f2f4f4;
+	margin:0 !important;
+	padding: 0px !important;
+  font-family: 'Open Sans', sans-serif;
+
+    -webkit-animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    -ms-animation: fadein 1.5s;
+    -o-animation: fadein 1.5s;
+    animation: fadein 1.5s;
+}
+
+a, button{ transition: all ease 0.5s;  }
+
+body, html {
+	height:100%;
+}
+
+html, body, p, h1, h2, h3, h4, h5, h6, img, form, input, select, textarea, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul li{
+    list-style: none;
+}
+
+:focus{  outline: none; }
+
+img {
+    border: none;
+    width: 100%;
+
+}
+
+a {
+	transition: all ease 0.5s;
+	text-decoration:none !important;
+}
+
+a:hover { text-decoration:none; color: inherit;}
+
+a, a:link, a:visited, input { outline: none; }
+header, footer, section, .wraper{ float:left; width:100%; }
+
+.clear {
+    height: 0;
+	margin: 0;
+	padding: 0;
+	clear: both;
+	font-size: 0;
+	line-height: 0;
+}
+
+.btn:focus {
+    outline: 0;
+    box-shadow: inherit;
+}
+.Dflex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.login {
+    background: rgb(45,46,40);
+    background: linear-gradient(
+0deg
+, rgba(45,46,40,1) 0%, rgb(246 142 32) 100%);
+    height: 100vh;
+}
+.login-card {
+    width: 339px;
+    background: #fff;
+    padding:40px 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+.login-logo {
+    width: 130px;
+    margin: auto;
+    margin-bottom: 26px;
+}
+.orange {
+    background: #f07531;
+}
+a.btn.orange.carland-button {
+    width: 100%;
+    color: #fff;
+    font-size: 17px;
+    margin-top: 20px;
+    border-radius: 50px;
+}
+.orange-font {
+    color: #f07531;
+}
+input.form-control.custom-input {
+    background: #cccccc40;
+    border: 0;
+    height: 43px;
+}
+.carland-button:hover {
+    background: #2e2e28;
+}
+a.sign-up.text-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20p;
+    padding-top: 20px;
+    color: #ccc;
+}
+.custom-input::placeholder {
+  text-align: center;
+    font-size: 14px;
+    color: #a9a5a5;
+}
+a.forgot-password.orange-font {
+    font-size: 14px;
+}
+button.hidden-btn {
+    border: 0;
+    background: #fff !important;
+}
+
+.red{
+    border: 1px solid red ;
+
+  }
+  .red .multiselect-dropdown > div .dropdown-btn {
+    border: 1px solid red !important;
+}
+ng-multiselect-dropdown {
+    border: 0 !important;
+}
+
+.dropbtn {
+    background-color: #b7b7b7;
+    color: white;
+    padding: 8px 47px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #000;
+  }
+  .modal-footer button {
+    margin-bottom: inherit;
+}
+
+a.nav-link i {
+    font-size: 15px;
+}
+.search-bar{
+    border: 1px solid #ccc !important;
+}
+
+.card {
+    padding: 20px !important;
+}
+.inpur-search{
+    padding: 0 !important;
+}
+button.btn.btn-info.btn-lg {
+    padding: 12px;
+}
+.employee-btn button {
+    margin-right: 10px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+a.nav-link {
+    background: #cccccc2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.Confirm {
+    background: #f96332 !important;
+    color: #fff;
+}
+.avatar-wrapper {
+    margin: 20px auto !important;
+}
+.card.card-user h6 {
+    text-align: center;
+    margin-top: 12px;
+}
+.sidebar {
+    background: #e2790b !important;
+}
+td .form-group input[type=file] {
+    opacity: 1 !important;
+    position: inherit !important;
+}
+.sidebar .nav li.active > a, .off-canvas-sidebar .nav li.active > a {
+   
+    color: #000408!important;
+}
+h4.modal-title {
+    margin-top: inherit !important;
+}
+input[type=file]::file-selector-button {
+    padding: 6px;
+    border: 0;
+    border-radius: 50px;
+    background-color: #f96332!important;
+    color: #fff;
+    transition: 1s;
+  }
+
+  .manage-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.manage-buttons button {
+   margin-right: 7px !important;
+
+}
+
+.profile-img {
+    width: 190px;
+    padding-top: 50px;
+}
+.profile-head {
+    padding-top: 40px !important;
+}
+/*------------------------------------------------------------------------------------------------------------------------------ */
+                                                        /* MEDIA QUERY START*/
+/*------------------------------------------------------------------------------------------------------------------------------ */
+
+@media screen and (max-width: 991px) {
+  
+
+    
+}
+@media screen and (max-width: 767px) {}
+    
+  
+    
+    
+    
+    
+@media screen and (max-width: 580px) {
+    
+}
+@media screen and (max-width: 480px) {
+   
+}
+@media screen and (max-width: 420px) {
+}
+@media screen and (max-width: 375px) {
+  .login-card {width: 100%;position: inherit;top: inherit;left: inherit;transform: inherit;margin-top: 50px;}  
+    
+  .login {padding-top: 20px;}
+}
+@media screen and (max-width: 320px) {
+}
+ 
+/* ==================== */
+span.dropdown-btn {
+    border-radius: 50px !important;
+    border: 1px solid #E3E3E3 !important;
+    font-size: 12px;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+.logo {
+    width: 100%;
+    margin: auto;
+}
+.brand-logo {
+    margin: auto;
+    padding: 15px 15px;
+        width: 200px;
+}
+a.simple-text.logo-mini {
+    width: 100% !important;
+}
+.form-control:focus {
+    border: 1px solid #a4cef9 !important ; }
+
+    .login-fields input::placeholder {
+        text-align: left;
+
+    }
+        
+    .main-content {
+        margin-top: -14px !important;
+    }
+
+   
+
+
+
+

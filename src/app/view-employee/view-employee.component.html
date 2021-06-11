@@ -1,0 +1,178 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="profile-img">
+                  <img *ngIf="!data.Emp_ProfilePhoto" src="/assets/img/emtyImg.jpg" class="imge" alt=""/>
+  
+                    <img *ngIf="data.Emp_ProfilePhoto" src="{{imgUrl+data.Emp_ProfilePhoto}}" class="imge" alt=""/>
+  
+                </div>
+            </div>
+            
+            <div class="col-md-7">
+                <div class="profile-head">
+                            <h5>
+                               {{data.Emp_Fname}} {{data.Emp_Lname}}
+                            </h5>
+                            <h6>
+                                {{data.Emp_Position}}
+                            </h6>
+       
+                </div>
+            </div>
+  
+            <div class="col-md-2">
+                <div class="profile-head pt-4">
+                            <h5>
+                                QR Code
+                            </h5>
+                            <ngx-qrcode  id="qrcode"
+                            [elementType]="elementType" 
+                            [value] = "value"
+                            cssClass = "aclass"
+                            errorCorrectionLevel = "L">
+                      </ngx-qrcode>
+                      <button (click)="download()" class="btn btn-primary">Download PDF</button>
+
+                </div>
+            </div>
+         
+        </div>
+        <div class="row details_emp-tra">
+           
+            <div class="col-md-10 second_col">
+                <h3 class="pb-3">Employee Details</h3>
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                           
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p> {{data.Emp_Fname}} {{data.Emp_Lname}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Position</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p> {{data.Emp_Position}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Division</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.Div_Name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Hire Date</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.HireDate}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Project Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{data.Emp_ProjectSiteName}}</p>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Tag Info</label><br/>
+                        <p>{{data.Emp_TagInfo}}</p>
+                    </div>
+                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                               
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+  </div>
+  <div class="row" >
+    <div class="col-md-6 pr-1" *ngFor="let Employee of allGblCategory   let index = index">
+  <div class="profile-head">
+    <h5>
+      {{Employee.Category_Name}}
+    </h5>
+
+</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class=" text-primary">
+          <th>
+           Name
+          </th>
+          <th>
+            Completed
+          </th>
+          <th>
+           Expiration
+          </th>
+          <th>
+            Lic. #
+          </th>
+          <th>
+            Doc
+            </th>
+            <th>
+             Related
+            </th>
+         
+        </thead>
+        <tbody  >
+          <!-- <tr   *ngFor="let menuItem of allEmployees"> -->
+            <div *ngFor="let lic of allLicenceData   let index = index">
+                <div *ngIf="Employee._id ==lic.Category_Id " >
+          <tr  *ngFor="let name of lic.Licence_DescriptionName">
+          
+            <td>
+         
+             {{name}}
+            
+             </td>
+            
+
+            <td  *ngFor="let date of lic.Licence_Issue_DateNew">
+                {{date}}
+                        </td>
+                    
+            <td *ngFor="let date of lic.Licence_Expiry_DateNew">
+                {{date}}
+             </td>
+            <td  *ngFor="let date of lic.Licence_Certificate">
+                {{date}}
+             </td>
+            <td>
+              -
+            </td>
+            <td *ngFor="let date of lic.Licence_Related">
+                {{date}}
+            </td>
+        
+          </tr>
+                </div>
+            </div>
+      </table>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>

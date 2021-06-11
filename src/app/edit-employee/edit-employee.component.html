@@ -1,0 +1,187 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+
+<div class="row">
+    <div class="col-md-4">
+      <div class="card card-user">
+        <h6 class="card-title">Upload Profile Picture</h6>
+
+        <!-- <div class="image">
+          <img src="/assets/img/bg5.jpg" alt="...">
+        </div> -->
+        <!-- <div class="card-body">
+          <div class="author">
+          
+              <input type="image"  name="filename"  (focusout)="singleImage($event, 'BACK')" class="avatar border-gray" src="/assets/img/mike.jpg">
+  <input type="file" id="my_file" style="display: none;"   />
+  
+          </div>
+         
+        </div> -->
+        <div class="avatar-wrapper">
+          <img *ngIf="!data.Emp_ProfilePhoto" class="profile-pic" src="/assets/img/emtyImg.jpg" />
+          <img *ngIf="data.Emp_ProfilePhoto" class="profile-pic" src="{{imgUrl+data.Emp_ProfilePhoto}}" />
+
+          <div class="upload-button">
+            <!-- <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> -->
+          </div>
+          <input class="file-upload" type="file" (change)="singleImage($event, 'BACK')" >
+        </div> 
+      </div>
+   
+    </div>
+    <div class="col-md-8">
+        <div class="card card-user">
+          <div class="card-header">
+            <h5 class="card-title"><button class="hidden-btn" routerLink="/all-employee" ><i class="now-ui-icons arrows-1_minimal-left"></i></button>Edit Employee</h5>
+          </div> 
+          <div class="card-body">
+            <form  [formGroup]="form"  novalidate>
+          
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name" value="Chet" formControlName="Emp_Fname"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_Fname.errors }">
+                  </div>
+                </div>
+    
+    
+    
+                
+                <div class="col-md-6 pl-1">
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last Name" value="Faker" formControlName="Emp_Lname"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_Lname.errors }">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>Email ID</label>
+                    <input type="text" class="form-control" placeholder="Email ID"  formControlName="Emp_Email"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_Email.errors }">
+                  </div>
+                </div>
+                <div class="col-md-6 pl-1">
+                  <div class="form-group">
+                    <label>Employee#</label>
+                    <input class="form-control" placeholder="Employee ID"  formControlName="Emp_Number"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_Number.errors }">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 ">
+                  <div class="form-group">
+                    <label>Position</label>
+                    <input type="text" class="form-control" placeholder="Position" value="Melbourne" formControlName="Emp_Position"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_Position.errors }">
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="form-group label-floating is-empty">
+                           
+                    <label>Division</label>
+  
+                    <select class="form-control" formControlName="Div_id" placeholder="Division" (change)="getDivisionId($event.target.value)" 
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Div_id.errors }">
+                      <option value="" selected disabled>-- Select --</option>
+                      <option   *ngFor="let divi of allDivision; let i = index;" value="{{divi._id}}">{{divi.Div_name}}</option>
+      
+                    </select>
+            </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="form-group">
+                    <label>Date of birth</label>
+                    <input id="datepicker" type="text" formControlName="Emp_DOB" placeholder="Date of birth" class="form-control" data-zdp_readonly_element="false" (focusout)="focusOutDOB($event)"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_DOB.errors }">
+                  </div>
+                </div>
+              </div>
+    
+    
+              <div class="row">
+                <div class="col-md-4 ">
+                  <div class="form-group">
+                    <label>Hire Date</label>
+                    <input id="datepicker-2" placeholder="Hire Date" formControlName="Emp_HireDate" type="text" class="form-control" data-zdp_readonly_element="false" (focusout)="focusOutHireDate($event)"
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_HireDate.errors }">
+                  </div>
+                </div>
+             
+<!--                 
+                <div class="col-md-4 pl-1">
+                  <div class="form-group label-floating is-empty">
+                    <label>Project Site Name</label>
+  
+                    <select class="form-control" formControlName="Emp_ProjectSites" (change)="getProjectSiteId($event.target.value)" 
+                    [ngClass]="{ 'is-invalid': formSubmitted && f.Emp_ProjectSites.errors }">
+                      <option value="" selected disabled>-- Select --</option>
+                      <option   *ngFor="let site of allProjectSite; let i = index;" value="{{site._id}}">{{site.Project_Site_Name}}</option>
+      
+                    </select>
+            </div>
+                </div> -->
+
+
+                <div class="col-md-4 ">
+                  <div class="form-group label-floating is-empty">
+                    <label>Project Site Name</label>
+  
+                    <ng-multiselect-dropdown #multiSelect 
+      [placeholder]="'Select City'" formControlName="Emp_ProjectSites" [ngClass]="{ 'red': formSubmitted && f.Emp_ProjectSites.errors }" 
+      [data]="allProjectSite" 
+      [settings]="settings"
+      (onFilterChange)="onFilterChange($event)"
+      (onDropDownClose)="onDropDownClose($event)"
+      (onSelect)="onItemSelect($event)" 
+      (onDeSelect)="onDeSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+		</ng-multiselect-dropdown>
+            </div>
+                </div>
+
+                <div class="col-md-4 ">
+                  <div class="form-group label-floating is-empty">
+                    <label>Status</label>
+            
+                    <select class="form-control" formControlName="Status" [ngClass]="{ 'is-invalid': formSubmitted && f.Status.errors }">
+                      <option value="" selected disabled>-- Select --</option>
+                      <option value="Active">Active</option>
+                      <option value="InActive">InActive</option>
+                      
+                    </select>
+               
+            </div>
+                </div>
+              </div>
+    
+    
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Tag Info</label>
+                    <textarea class="form-control textarea" formControlName="Emp_TagInfo"[ngClass]="{ 'is-invalid': formSubmitted && f.Emp_TagInfo.errors }"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="update ml-auto mr-auto">
+                  <button type="submit" class="btn btn-primary btn-round" (click)=resetForm()>Cancel</button>
+
+                  <button type="submit" class="btn btn-primary btn-round" (click)=editEmployee()>Edit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>

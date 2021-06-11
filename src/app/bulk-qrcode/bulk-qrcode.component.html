@@ -1,0 +1,35 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="card">
+        <div class="card-header">
+            
+
+            <h4 class="card-title"><button class="hidden-btn" routerLink="/all-employee" ><i class="now-ui-icons arrows-1_minimal-left"></i></button> QR Code</h4>
+
+            <div class="row">
+       
+          <div class="col-md-3" *ngFor="let Employee of allEmployees  let index = index">
+            <div class="profile-head pt-4">
+                       <div>
+                          Employee Name: {{Employee.Emp_Fname}} {{Employee.Emp_Lname}}
+                      <br>
+                         Employee No: {{Employee.Emp_Number}}
+                       </div>
+                       <div>
+                        <ngx-qrcode 
+                        [elementType]="elementType" 
+                        value = "http://13.234.177.61/public-view/{{Employee._id}}"
+                        cssClass = "aclass"
+                        errorCorrectionLevel = "L">
+                  </ngx-qrcode>
+                  </div>
+            </div>
+        </div>
+        </div>
+    
+        </div>
+    </div>
+<div class="row">
+    </div>
+    </div>
